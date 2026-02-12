@@ -21,7 +21,7 @@ export const FlashcardsPage = () => {
         </button>
       </div>
 
-      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {flashcardSets.map((set) => (
           <article
             className="dark-card cursor-pointer rounded-2xl p-5 transition hover:border-violet-300/30"
@@ -60,3 +60,4 @@ export const FlashcardsPage = () => {
     </DashboardShell>
   )
 }
+
