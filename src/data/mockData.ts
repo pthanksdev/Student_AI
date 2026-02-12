@@ -112,6 +112,15 @@ export const courses: Course[] = [
   { title: 'Advanced Biology', progress: 76, lessonsLeft: 4, category: 'Science' },
   { title: 'Linear Algebra', progress: 61, lessonsLeft: 7, category: 'Math' },
   { title: 'World History', progress: 83, lessonsLeft: 2, category: 'Humanities' },
+  { title: 'Organic Chemistry', progress: 54, lessonsLeft: 9, category: 'Science' },
+  { title: 'Data Structures', progress: 68, lessonsLeft: 5, category: 'Computer Science' },
+  { title: 'Microeconomics', progress: 47, lessonsLeft: 11, category: 'Business' },
+  { title: 'Academic Writing', progress: 72, lessonsLeft: 3, category: 'Language' },
+  { title: 'Physics: Mechanics', progress: 59, lessonsLeft: 8, category: 'Science' },
+  { title: 'Statistics I', progress: 64, lessonsLeft: 6, category: 'Math' },
+  { title: 'Psychology Fundamentals', progress: 81, lessonsLeft: 2, category: 'Social Science' },
+  { title: 'Intro to Philosophy', progress: 38, lessonsLeft: 12, category: 'Humanities' },
+  { title: 'Web Development Basics', progress: 88, lessonsLeft: 1, category: 'Computer Science' },
 ]
 
 export const recentActivities: Activity[] = [
