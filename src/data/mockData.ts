@@ -1,5 +1,20 @@
-﻿import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
-import type { Activity, Assignment, Course, FlashcardSet, Metric, NavItem, PlannerTask, Quiz, Recommendation } from '../types'
+import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
+import type {
+  Activity,
+  Assignment,
+  ConnectedService,
+  Course,
+  FlashcardSet,
+  Metric,
+  NavItem,
+  PlannerTask,
+  ProfileAchievement,
+  ProfileGoal,
+  ProfileOverview,
+  Quiz,
+  Recommendation,
+  SecuritySession,
+} from '../types'
 
 export const publicNav: NavItem[] = [
   { label: 'Features', path: '/features' },
@@ -225,6 +240,43 @@ export const weeklyStudyData = [
   { day: 'Sun', minutes: 72 },
 ]
 
+export const profileOverview: ProfileOverview = {
+  name: 'Alex D.',
+  handle: '@alexd',
+  email: 'alex.d@studentia.app',
+  school: 'Westbridge University',
+  major: 'Computer Science',
+  year: '3rd Year',
+  timezone: 'UTC-05:00',
+  bio: 'Focused on exam readiness, stronger retention, and consistent weekly progress.',
+  streak: 14,
+  weeklyHours: 16.4,
+  completionRate: 87,
+}
+
+export const profileGoals: ProfileGoal[] = [
+  { title: 'Raise calculus score', target: '92%', current: '84%', deadline: 'Mar 10' },
+  { title: 'Complete chemistry revision bank', target: '120 cards', current: '86 cards', deadline: 'Mar 02' },
+  { title: 'Finish planner consistency streak', target: '21 days', current: '14 days', deadline: 'Feb 28' },
+]
+
+export const profileAchievements: ProfileAchievement[] = [
+  { title: 'Deep Work Sprint', description: 'Completed 10 focused sessions in one week.', unlocked: 'Unlocked Feb 2' },
+  { title: 'Quiz Climber', description: 'Improved average quiz score by 12%.', unlocked: 'Unlocked Jan 26' },
+  { title: 'Retention Builder', description: 'Maintained 85%+ flashcard retention for 3 sets.', unlocked: 'Unlocked Jan 18' },
+]
+
+export const connectedServices: ConnectedService[] = [
+  { name: 'Google Calendar', status: 'Connected', lastSync: '2h ago' },
+  { name: 'Notion Workspace', status: 'Connected', lastSync: 'Yesterday' },
+  { name: 'Campus LMS', status: 'Needs Attention', lastSync: '5 days ago' },
+]
+
+export const securitySessions: SecuritySession[] = [
+  { device: 'Chrome on Windows', location: 'New York, US', lastActive: 'Now', current: true },
+  { device: 'Safari on iPhone', location: 'New York, US', lastActive: 'Today, 7:14 AM' },
+  { device: 'Edge on Laptop', location: 'Boston, US', lastActive: 'Yesterday, 9:42 PM' },
+]
 export const dashboardNav = [
   { label: 'Overview', path: '/dashboard' },
   { label: 'Courses', path: '/dashboard/courses' },
@@ -238,3 +290,5 @@ export const dashboardNav = [
   { label: 'Billing', path: '/dashboard/billing' },
   { label: 'Settings', path: '/dashboard/settings' },
 ]
+
+

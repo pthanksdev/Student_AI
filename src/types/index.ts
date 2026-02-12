@@ -52,3 +52,43 @@ export type Assignment = {
   due: string
   status: 'Not Started' | 'In Progress' | 'Submitted'
 }
+
+export type ProfileOverview = {
+  name: string
+  handle: string
+  email: string
+  school: string
+  major: string
+  year: string
+  timezone: string
+  bio: string
+  streak: number
+  weeklyHours: number
+  completionRate: number
+}
+
+export type ProfileGoal = {
+  title: string
+  target: string
+  current: string
+  deadline: string
+}
+
+export type ProfileAchievement = {
+  title: string
+  description: string
+  unlocked: string
+}
+
+export type ConnectedService = {
+  name: string
+  status: 'Connected' | 'Needs Attention'
+  lastSync: string
+}
+
+export type SecuritySession = {
+  device: string
+  location: string
+  lastActive: string
+  current?: boolean
+}
