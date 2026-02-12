@@ -1,5 +1,5 @@
 ﻿import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
-import type { Activity, Course, FlashcardSet, Metric, NavItem, Quiz, Recommendation } from '../types'
+import type { Activity, Course, FlashcardSet, Metric, NavItem, PlannerTask, Quiz, Recommendation } from '../types'
 
 export const publicNav: NavItem[] = [
   { label: 'Features', path: '/features' },
@@ -153,6 +153,19 @@ export const flashcardSets: FlashcardSet[] = [
   { name: 'World Geography Capitals', cards: 52, retention: '83%' },
   { name: 'Economics Key Concepts', cards: 29, retention: '76%' },
   { name: 'Physics Constants and Units', cards: 33, retention: '82%' },
+]
+
+export const plannerTasks: PlannerTask[] = [
+  { title: 'Biology review sprint', time: 'Today, 5:00 PM', status: 'Scheduled' },
+  { title: 'Math flashcard session', time: 'Tomorrow, 8:00 AM', status: 'Scheduled' },
+  { title: 'History quiz block', time: 'Friday, 6:30 PM', status: 'Pending' },
+  { title: 'Linear algebra problem set', time: 'Saturday, 10:00 AM', status: 'Scheduled' },
+  { title: 'Chemistry lab recap', time: 'Saturday, 3:00 PM', status: 'Pending' },
+  { title: 'Programming practice challenge', time: 'Sunday, 1:00 PM', status: 'Scheduled' },
+  { title: 'Statistics formula revision', time: 'Monday, 7:30 AM', status: 'Scheduled' },
+  { title: 'Essay draft outline', time: 'Monday, 8:00 PM', status: 'Completed' },
+  { title: 'Physics mechanics timed quiz', time: 'Tuesday, 6:00 PM', status: 'Pending' },
+  { title: 'Language vocab checkpoint', time: 'Wednesday, 7:15 PM', status: 'Scheduled' },
 ]
 
 export const aiRecommendations: Recommendation[] = [

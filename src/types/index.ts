@@ -40,3 +40,9 @@ export type FlashcardSet = {
   cards: number
   retention: string
 }
+
+export type PlannerTask = {
+  title: string
+  time: string
+  status: 'Scheduled' | 'Pending' | 'Completed'
+}
