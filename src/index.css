@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #eef0ff;
+  background: #09061a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% -10%, rgba(130, 75, 255, 0.34), transparent 28%),
+    radial-gradient(circle at 90% 0%, rgba(58, 115, 255, 0.22), transparent 28%),
+    linear-gradient(180deg, #09061a 0%, #09051a 40%, #080416 100%);
+  color: #eef0ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gradient-text {
+  @apply bg-brand-gradient bg-clip-text text-transparent;
+}
+
+.dark-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@media (max-width: 640px) {
+  .dark-grid {
+    background-size: 30px 30px;
+  }
+}
+
+.dark-card {
+  background: linear-gradient(155deg, rgba(25, 19, 51, 0.92), rgba(16, 13, 34, 0.96));
+  border: 1px solid rgba(147, 126, 244, 0.22);
+  box-shadow: 0 26px 50px -30px rgba(37, 26, 102, 0.95);
+}
+
+.dark-card-soft {
+  background: linear-gradient(145deg, rgba(18, 14, 38, 0.82), rgba(14, 11, 30, 0.9));
+  border: 1px solid rgba(139, 124, 220, 0.18);
+}
+
+.glow-ring {
+  box-shadow:
+    inset 0 0 0 1px rgba(189, 176, 255, 0.22),
+    0 0 0 1px rgba(100, 82, 189, 0.24),
+    0 16px 40px -28px rgba(72, 48, 162, 0.9);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
