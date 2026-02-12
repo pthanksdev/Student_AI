@@ -46,3 +46,9 @@ export type PlannerTask = {
   time: string
   status: 'Scheduled' | 'Pending' | 'Completed'
 }
+
+export type Assignment = {
+  title: string
+  due: string
+  status: 'Not Started' | 'In Progress' | 'Submitted'
+}

@@ -1,5 +1,5 @@
 ﻿import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
-import type { Activity, Course, FlashcardSet, Metric, NavItem, PlannerTask, Quiz, Recommendation } from '../types'
+import type { Activity, Assignment, Course, FlashcardSet, Metric, NavItem, PlannerTask, Quiz, Recommendation } from '../types'
 
 export const publicNav: NavItem[] = [
   { label: 'Features', path: '/features' },
@@ -164,6 +164,21 @@ export const plannerTasks: PlannerTask[] = [
   { title: 'Programming practice challenge', time: 'Sunday, 1:00 PM', status: 'Scheduled' },
   { title: 'Essay draft outline', time: 'Monday, 8:00 PM', status: 'Completed' },
   { title: 'Physics mechanics timed quiz', time: 'Tuesday, 6:00 PM', status: 'Pending' },
+]
+
+export const assignments: Assignment[] = [
+  { title: 'Linear Algebra worksheet', due: 'Tomorrow', status: 'In Progress' },
+  { title: 'Biology chapter quiz', due: 'Friday', status: 'Not Started' },
+  { title: 'History timeline summary', due: 'Sunday', status: 'Submitted' },
+  { title: 'Chemistry lab report', due: 'Monday', status: 'In Progress' },
+  { title: 'Programming mini project', due: 'Tuesday', status: 'Not Started' },
+  { title: 'Economics case analysis', due: 'Wednesday', status: 'In Progress' },
+  { title: 'Physics worksheet set B', due: 'Thursday', status: 'Not Started' },
+  { title: 'Psychology reflection notes', due: 'Friday', status: 'Submitted' },
+  { title: 'English literature response', due: 'Saturday', status: 'In Progress' },
+  { title: 'Statistics practice packet', due: 'Sunday', status: 'Not Started' },
+  { title: 'Web dev UI critique', due: 'Monday', status: 'Submitted' },
+  { title: 'Geography map labeling', due: 'Tuesday', status: 'In Progress' },
 ]
 
 export const aiRecommendations: Recommendation[] = [
