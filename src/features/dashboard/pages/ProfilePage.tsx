@@ -1,4 +1,4 @@
-import {
+ï»¿import {
   BadgeCheck,
   Bell,
   BookOpen,
@@ -32,7 +32,7 @@ export const ProfilePage = () => (
         <p className="mt-1 text-sm text-violet-100/70">{profileOverview.bio}</p>
       </div>
       <div className="flex items-center gap-2 rounded-xl border border-violet-300/20 bg-violet-300/8 px-3 py-2">
-        <div className="h-10 w-10 rounded-full bg-brand-gradient" />
+        <img alt={`${profileOverview.name} avatar`} className="h-10 w-10 rounded-full border border-violet-300/20 object-cover" src={profileOverview.avatarUrl} />
         <div>
           <p className="text-sm font-semibold text-white">{profileOverview.handle}</p>
           <p className="text-xs text-violet-100/60">{profileOverview.email}</p>
@@ -97,7 +97,7 @@ export const ProfilePage = () => (
           {profileGoals.map((goal) => (
             <div className="rounded-xl border border-violet-300/15 p-3" key={goal.title}>
               <p className="font-semibold text-violet-50">{goal.title}</p>
-              <p className="mt-1 text-xs text-violet-100/65">{goal.current} / {goal.target} • Due {goal.deadline}</p>
+              <p className="mt-1 text-xs text-violet-100/65">{goal.current} / {goal.target} â€¢ Due {goal.deadline}</p>
             </div>
           ))}
         </div>
@@ -157,7 +157,7 @@ export const ProfilePage = () => (
                 {session.device}
                 {session.current ? <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs text-emerald-300">Current</span> : null}
               </p>
-              <p className="mt-1 text-xs text-violet-100/65">{session.location} • {session.lastActive}</p>
+              <p className="mt-1 text-xs text-violet-100/65">{session.location} â€¢ {session.lastActive}</p>
             </div>
           ))}
         </div>
@@ -183,4 +183,5 @@ export const ProfilePage = () => (
     </section>
   </DashboardShell>
 )
+
 

@@ -57,6 +57,7 @@ export type ProfileOverview = {
   name: string
   handle: string
   email: string
+  avatarUrl: string
   school: string
   major: string
   year: string
@@ -91,4 +92,14 @@ export type SecuritySession = {
   location: string
   lastActive: string
   current?: boolean
+}
+
+export type MessageThread = {
+  from: string
+  preview: string
+  time: string
+  avatarUrl: string
+  unread: boolean
+  priority: 'Normal' | 'High'
+  channel: 'AI Tutor' | 'Peer' | 'Mentor'
 }

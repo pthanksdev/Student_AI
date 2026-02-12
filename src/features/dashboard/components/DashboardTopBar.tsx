@@ -1,5 +1,6 @@
 import { Bell, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { profileOverview } from '@shared/data/mockData'
 
 export const DashboardTopBar = () => {
   return (
@@ -19,7 +20,7 @@ export const DashboardTopBar = () => {
             <Bell className="h-5 w-5" />
           </button>
           <Link className="flex items-center gap-2 rounded-xl border border-violet-300/20 bg-violet-300/8 px-2 py-2 transition hover:border-violet-200/40 sm:gap-3 sm:px-3" to="/dashboard/profile">
-            <div className="h-8 w-8 rounded-full bg-brand-gradient" />
+            <img alt={`${profileOverview.name} profile`} className="h-8 w-8 rounded-full border border-violet-300/20 object-cover" src={profileOverview.avatarUrl} />
             <p className="hidden text-sm font-semibold text-violet-50 sm:block">Alex D.</p>
           </Link>
         </div>

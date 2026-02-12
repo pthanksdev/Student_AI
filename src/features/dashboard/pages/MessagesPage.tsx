@@ -1,28 +1,73 @@
+import { CircleDot, MessageCircleMore, SendHorizonal } from 'lucide-react'
 import { DashboardPageHeader } from '@features/dashboard/components/DashboardPageHeader'
 import { DashboardShell } from '@features/dashboard/components/DashboardShell'
+import { messageThreads } from '@shared/data/mockData'
 
-const threads = [
-  { from: 'AI Tutor', preview: 'I generated your 20-minute revision plan.', time: 'Now' },
-  { from: 'Maya Lin', preview: 'Can we review chapter 5 tonight?', time: '1h ago' },
-  { from: 'Course Mentor', preview: 'Your quiz accuracy improved this week.', time: 'Yesterday' },
-]
+export const MessagesPage = () => {
+  const unreadCount = messageThreads.filter((thread) => thread.unread).length
 
-export const MessagesPage = () => (
-  <DashboardShell>
-    <DashboardPageHeader label="Messages" title="Inbox" />
-    <div className="space-y-4">
-      {threads.map((thread) => (
-        <article className="dark-card rounded-2xl p-5" key={thread.from + thread.time}>
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h3 className="font-display text-lg font-semibold text-white">{thread.from}</h3>
-              <p className="mt-1 text-sm text-violet-100/70">{thread.preview}</p>
-            </div>
-            <p className="text-xs text-violet-200/80">{thread.time}</p>
-          </div>
+  return (
+    <DashboardShell>
+      <DashboardPageHeader
+        description={`${unreadCount} unread conversation${unreadCount === 1 ? '' : 's'} waiting for your response.`}
+        label="Messages"
+        title="Inbox"
+      />
+
+      <section className="mb-5 grid gap-4 sm:grid-cols-3">
+        <article className="dark-card-soft rounded-2xl p-4">
+          <p className="text-sm text-violet-100/65">Unread</p>
+          <p className="mt-1 text-xl font-bold text-white">{unreadCount}</p>
         </article>
-      ))}
-    </div>
-  </DashboardShell>
-)
+        <article className="dark-card-soft rounded-2xl p-4">
+          <p className="text-sm text-violet-100/65">Mentions</p>
+          <p className="mt-1 text-xl font-bold text-white">2</p>
+        </article>
+        <article className="dark-card-soft rounded-2xl p-4">
+          <p className="text-sm text-violet-100/65">Response Time</p>
+          <p className="mt-1 text-xl font-bold text-white">14m avg</p>
+        </article>
+      </section>
 
+      <div className="space-y-4">
+        {messageThreads.map((thread) => (
+          <article className="dark-card rounded-2xl p-5" key={`${thread.from}-${thread.time}-${thread.preview}`}>
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <img alt={`${thread.from} avatar`} className="h-10 w-10 rounded-full border border-violet-300/20 object-cover" src={thread.avatarUrl} />
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="font-display text-lg font-semibold text-white">{thread.from}</h3>
+                    <span className="rounded-lg bg-violet-300/12 px-2 py-0.5 text-xs font-semibold text-violet-100">{thread.channel}</span>
+                    {thread.priority === 'High' ? (
+                      <span className="rounded-lg bg-rose-500/20 px-2 py-0.5 text-xs font-semibold text-rose-300">High priority</span>
+                    ) : null}
+                    {thread.unread ? (
+                      <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/15 px-2 py-0.5 text-xs font-semibold text-emerald-300">
+                        <CircleDot className="h-3 w-3" />
+                        Unread
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-2 max-w-3xl text-sm text-violet-100/75">{thread.preview}</p>
+                </div>
+              </div>
+              <p className="text-xs text-violet-200/80">{thread.time}</p>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <button className="inline-flex items-center gap-2 rounded-lg border border-violet-300/20 px-3 py-2 text-sm font-semibold text-violet-100/85" type="button">
+                <MessageCircleMore className="h-4 w-4" />
+                Open Thread
+              </button>
+              <button className="inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-3 py-2 text-sm font-semibold text-white" type="button">
+                <SendHorizonal className="h-4 w-4" />
+                Quick Reply
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </DashboardShell>
+  )
+}

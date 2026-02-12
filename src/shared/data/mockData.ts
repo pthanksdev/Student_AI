@@ -14,6 +14,7 @@ import type {
   Quiz,
   Recommendation,
   SecuritySession,
+  MessageThread,
 } from '@shared/types'
 
 export const publicNav: NavItem[] = [
@@ -244,6 +245,7 @@ export const profileOverview: ProfileOverview = {
   name: 'Alex D.',
   handle: '@alexd',
   email: 'alex.d@studentia.app',
+  avatarUrl: 'https://api.dicebear.com/9.x/thumbs/svg?seed=AlexD',
   school: 'Westbridge University',
   major: 'Computer Science',
   year: '3rd Year',
@@ -276,6 +278,45 @@ export const securitySessions: SecuritySession[] = [
   { device: 'Chrome on Windows', location: 'New York, US', lastActive: 'Now', current: true },
   { device: 'Safari on iPhone', location: 'New York, US', lastActive: 'Today, 7:14 AM' },
   { device: 'Edge on Laptop', location: 'Boston, US', lastActive: 'Yesterday, 9:42 PM' },
+]
+
+export const messageThreads: MessageThread[] = [
+  {
+    from: 'AI Tutor',
+    preview: 'I built a 3-step revision plan for your upcoming calculus quiz.',
+    time: 'Now',
+    avatarUrl: 'https://api.dicebear.com/9.x/bottts/svg?seed=AITutor',
+    unread: true,
+    priority: 'High',
+    channel: 'AI Tutor',
+  },
+  {
+    from: 'Maya Lin',
+    preview: 'Can we split Chapter 5 and compare notes tonight at 8:30?',
+    time: '1h ago',
+    avatarUrl: 'https://api.dicebear.com/9.x/thumbs/svg?seed=MayaLin',
+    unread: true,
+    priority: 'Normal',
+    channel: 'Peer',
+  },
+  {
+    from: 'Course Mentor',
+    preview: 'Great progress this week. Your quiz accuracy improved by 6%.',
+    time: 'Yesterday',
+    avatarUrl: 'https://api.dicebear.com/9.x/personas/svg?seed=Mentor',
+    unread: false,
+    priority: 'Normal',
+    channel: 'Mentor',
+  },
+  {
+    from: 'AI Tutor',
+    preview: 'You missed two probability concepts. Want a quick 10-min booster?',
+    time: 'Yesterday',
+    avatarUrl: 'https://api.dicebear.com/9.x/bottts/svg?seed=AITutor',
+    unread: false,
+    priority: 'High',
+    channel: 'AI Tutor',
+  },
 ]
 export const dashboardNav = [
   { label: 'Overview', path: '/dashboard' },
