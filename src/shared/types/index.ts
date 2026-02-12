@@ -1,4 +1,4 @@
-export type NavItem = {
+﻿export type NavItem = {
   label: string
   path: string
 }
@@ -94,6 +94,14 @@ export type SecuritySession = {
   current?: boolean
 }
 
+export type ThreadMessage = {
+  id: string
+  sender: string
+  text: string
+  time: string
+  fromSelf?: boolean
+}
+
 export type MessageThread = {
   id: string
   from: string
@@ -103,4 +111,5 @@ export type MessageThread = {
   unread: boolean
   priority: 'Normal' | 'High'
   channel: 'AI Tutor' | 'Peer' | 'Mentor'
+  messages: ThreadMessage[]
 }

@@ -1,4 +1,4 @@
-﻿import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
+import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
 import type {
   Activity,
   Assignment,
@@ -14,8 +14,7 @@ import type {
   Quiz,
   Recommendation,
   SecuritySession,
-  MessageThread,
-} from '@shared/types'
+} from '../types'
 
 export const publicNav: NavItem[] = [
   { label: 'Features', path: '/features' },
@@ -245,7 +244,6 @@ export const profileOverview: ProfileOverview = {
   name: 'Alex D.',
   handle: '@alexd',
   email: 'alex.d@studentia.app',
-  avatarUrl: 'https://api.dicebear.com/9.x/thumbs/svg?seed=AlexD',
   school: 'Westbridge University',
   major: 'Computer Science',
   year: '3rd Year',
@@ -279,96 +277,6 @@ export const securitySessions: SecuritySession[] = [
   { device: 'Safari on iPhone', location: 'New York, US', lastActive: 'Today, 7:14 AM' },
   { device: 'Edge on Laptop', location: 'Boston, US', lastActive: 'Yesterday, 9:42 PM' },
 ]
-
-export const messageThreads: MessageThread[] = [
-  {
-    id: 'ai-tutor-plan',
-    from: 'AI Tutor',
-    preview: 'I built a 3-step revision plan for your upcoming calculus quiz.',
-    time: 'Now',
-    avatarUrl: 'https://api.dicebear.com/9.x/bottts/svg?seed=AITutor',
-    unread: true,
-    priority: 'High',
-    channel: 'AI Tutor',
-    messages: [
-      { id: 'm1', sender: 'AI Tutor', text: 'I analyzed your recent calculus attempts and identified three high-impact gaps: chain rule under nested functions, trigonometric substitution setup, and careless sign transitions in derivative simplification.', time: '8:02 AM' },
-      { id: 'm2', sender: 'You', text: 'That matches what I felt during the quiz. Can you prioritize those in a short plan?', time: '8:04 AM', fromSelf: true },
-      { id: 'm3', sender: 'AI Tutor', text: 'Yes. Step 1: 12-minute concept refresh on chain rule with composite functions. Step 2: 15-minute focused drill on trig substitutions. Step 3: 10-minute error-check pass where every line rewrite is validated for sign changes.', time: '8:06 AM' },
-      { id: 'm4', sender: 'AI Tutor', text: 'I also noticed that your speed drops after question 7. That usually indicates cognitive load from context switching, so I recommend grouping similar question types in one block before mixing them.', time: '8:07 AM' },
-      { id: 'm5', sender: 'You', text: 'Can we make it exam-style at the end? I want pressure simulation.', time: '8:08 AM', fromSelf: true },
-      { id: 'm6', sender: 'AI Tutor', text: 'Absolutely. Final phase: 18-minute mixed mini-assessment with no hints, then a 7-minute post-mortem where we map every miss to concept, process, or attention error.', time: '8:10 AM' },
-      { id: 'm7', sender: 'AI Tutor', text: 'If you follow this sequence today, I project a 6-9% score lift within your next two quiz sessions, based on your current baseline and historical correction speed.', time: '8:11 AM' },
-      { id: 'm8', sender: 'You', text: 'Perfect. Please generate the practice set now and add a checklist.', time: '8:12 AM', fromSelf: true },
-      { id: 'm9', sender: 'AI Tutor', text: 'Generated. I attached: practice set A (24 questions), chain rule micro-cards (14 cards), and a completion checklist with timing windows and review checkpoints.', time: '8:13 AM' },
-      { id: 'm10', sender: 'AI Tutor', text: "When you finish, send your score split by section and I will tune tomorrow's block automatically.", time: '8:14 AM' },
-    ],
-  },
-  {
-    id: 'maya-ch5',
-    from: 'Maya Lin',
-    preview: 'Can we split Chapter 5 and compare notes tonight at 8:30?',
-    time: '1h ago',
-    avatarUrl: 'https://api.dicebear.com/9.x/thumbs/svg?seed=MayaLin',
-    unread: true,
-    priority: 'Normal',
-    channel: 'Peer',
-    messages: [
-      { id: 'm1', sender: 'Maya Lin', text: "I reviewed Chapter 5 and highlighted sections 5.2 and 5.4 because they map directly to Friday's quiz rubric.", time: '7:01 PM' },
-      { id: 'm2', sender: 'You', text: 'Great. I can take 5.1 and 5.3, then we compare summaries?', time: '7:03 PM', fromSelf: true },
-      { id: 'm3', sender: 'Maya Lin', text: "Yes. Let's also create 5 challenge questions each so we can test understanding instead of just reading notes.", time: '7:04 PM' },
-      { id: 'm4', sender: 'You', text: 'Good idea. Should we focus on definitions first or application problems?', time: '7:05 PM', fromSelf: true },
-      { id: 'm5', sender: 'Maya Lin', text: 'Application first. Definitions are easier to patch quickly, but application mistakes usually reveal deeper misunderstandings.', time: '7:06 PM' },
-      { id: 'm6', sender: 'Maya Lin', text: "I can join at 8:30. I'll bring a one-page summary and a short whiteboard flow for the toughest concept transitions.", time: '7:07 PM' },
-      { id: 'm7', sender: 'You', text: "Nice. I'll prep examples that mix concepts from 5.2 and 5.4, since those usually show up together.", time: '7:08 PM', fromSelf: true },
-      { id: 'm8', sender: 'Maya Lin', text: "Perfect. After we finish, let's create a shared flashcard deck so we can do quick revision tomorrow morning.", time: '7:09 PM' },
-      { id: 'm9', sender: 'You', text: "Deal. Send your draft when ready and I'll annotate before the session.", time: '7:10 PM', fromSelf: true },
-      { id: 'm10', sender: 'Maya Lin', text: 'Sending in 20 min. This should make Friday much smoother.', time: '7:11 PM' },
-    ],
-  },
-  {
-    id: 'mentor-weekly',
-    from: 'Course Mentor',
-    preview: 'Great progress this week. Your quiz accuracy improved by 6%.',
-    time: 'Yesterday',
-    avatarUrl: 'https://api.dicebear.com/9.x/personas/svg?seed=Mentor',
-    unread: false,
-    priority: 'Normal',
-    channel: 'Mentor',
-    messages: [
-      { id: 'm1', sender: 'Course Mentor', text: 'I reviewed your weekly dashboard. Strong consistency overall, with notable gains in completion rate and quiz confidence.', time: '9:12 AM' },
-      { id: 'm2', sender: 'You', text: 'Thanks. Which area should I prioritize next week?', time: '9:15 AM', fromSelf: true },
-      { id: 'm3', sender: 'Course Mentor', text: 'Planner execution quality. You schedule well, but rescheduling frequency is high around evening blocks. Consider shorter, protected sessions.', time: '9:17 AM' },
-      { id: 'm4', sender: 'Course Mentor', text: 'Also, your assessment recovery is excellent: after sub-85 quiz results, you rebound quickly with targeted revision. Keep that cycle.', time: '9:18 AM' },
-      { id: 'm5', sender: 'You', text: 'Should I reduce weekly goals to avoid overplanning?', time: '9:20 AM', fromSelf: true },
-      { id: 'm6', sender: 'Course Mentor', text: 'Reduce breadth, not ambition. Keep 3 major goals but convert each into daily micro-milestones with explicit completion criteria.', time: '9:22 AM' },
-      { id: 'm7', sender: 'Course Mentor', text: 'For this week: prioritize calculus error elimination, chemistry retention stability, and one full-length mixed quiz by Thursday.', time: '9:23 AM' },
-      { id: 'm8', sender: 'You', text: "Understood. I'll update my planner and share tonight.", time: '9:24 AM', fromSelf: true },
-      { id: 'm9', sender: 'Course Mentor', text: "Great. Send it before 8 PM and I'll give you quick feedback so you can start tomorrow with a clear plan.", time: '9:25 AM' },
-    ],
-  },
-  {
-    id: 'ai-probability',
-    from: 'AI Tutor',
-    preview: 'You missed two probability concepts. Want a quick 10-min booster?',
-    time: 'Yesterday',
-    avatarUrl: 'https://api.dicebear.com/9.x/bottts/svg?seed=AITutor',
-    unread: false,
-    priority: 'High',
-    channel: 'AI Tutor',
-    messages: [
-      { id: 'm1', sender: 'AI Tutor', text: 'I detected repeated misses on probability questions involving conditional statements and event dependency assumptions.', time: '6:41 PM' },
-      { id: 'm2', sender: 'You', text: 'Can we isolate exactly where I am going wrong?', time: '6:42 PM', fromSelf: true },
-      { id: 'm3', sender: 'AI Tutor', text: 'Main issue: you sometimes apply independent-event formulas when the prompt implies dependence. Your setup is strong, but equation selection drifts under time pressure.', time: '6:43 PM' },
-      { id: 'm4', sender: 'AI Tutor', text: 'I prepared a progression: 6 conceptual checks, 8 medium examples, then 5 exam-like mixed prompts with distractors.', time: '6:44 PM' },
-      { id: 'm5', sender: 'You', text: 'Add explanation-first mode for the first half please.', time: '6:45 PM', fromSelf: true },
-      { id: 'm6', sender: 'AI Tutor', text: 'Done. First 7 items now include reasoning walk-through and why alternatives are wrong. Last 12 are strict exam mode.', time: '6:46 PM' },
-      { id: 'm7', sender: 'AI Tutor', text: 'After completion, we should create a 10-card retention set focused on trigger words that indicate dependence versus independence.', time: '6:47 PM' },
-      { id: 'm8', sender: 'You', text: 'Great. I will complete the set in 25 minutes and send results.', time: '6:48 PM', fromSelf: true },
-      { id: 'm9', sender: 'AI Tutor', text: 'Perfect. I will remain in analysis mode and generate a personalized correction report as soon as you submit.', time: '6:49 PM' },
-      { id: 'm10', sender: 'AI Tutor', text: 'Reminder: focus on interpreting problem wording before touching equations. That single habit will significantly reduce avoidable errors.', time: '6:50 PM' },
-    ],
-  },
-]
 export const dashboardNav = [
   { label: 'Overview', path: '/dashboard' },
   { label: 'Courses', path: '/dashboard/courses' },
@@ -383,7 +291,5 @@ export const dashboardNav = [
   { label: 'Settings', path: '/dashboard/settings' },
   { label: 'Profile', path: '/dashboard/profile' },
 ]
-
-
 
 

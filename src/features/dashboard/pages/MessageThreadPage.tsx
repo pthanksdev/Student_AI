@@ -1,8 +1,8 @@
-import { ArrowLeft, SendHorizonal } from 'lucide-react'
+﻿import { ArrowLeft, SendHorizonal } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { DashboardPageHeader } from '@features/dashboard/components/DashboardPageHeader'
 import { DashboardShell } from '@features/dashboard/components/DashboardShell'
-import { messageThreads } from '@shared/data/mockData'
+import { messageThreads, profileOverview } from '@shared/data/mockData'
 
 export const MessageThreadPage = () => {
   const { threadId } = useParams<{ threadId: string }>()
@@ -13,7 +13,7 @@ export const MessageThreadPage = () => {
   return (
     <DashboardShell>
       <DashboardPageHeader
-        description={`Channel: ${thread.channel} • Priority: ${thread.priority}`}
+        description={`Channel: ${thread.channel} - Priority: ${thread.priority}`}
         label="Messages"
         title={`Thread with ${thread.from}`}
       />
@@ -27,24 +27,17 @@ export const MessageThreadPage = () => {
 
       <article className="dark-card rounded-2xl p-5">
         <div className="space-y-4">
-          <div className="flex items-start gap-3">
-            <img alt={`${thread.from} avatar`} className="h-10 w-10 rounded-full border border-violet-300/20 object-cover" src={thread.avatarUrl} />
-            <div className="max-w-2xl rounded-2xl bg-violet-300/10 p-3">
-              <p className="text-sm font-semibold text-violet-100">{thread.from}</p>
-              <p className="mt-1 text-sm text-violet-100/80">{thread.preview}</p>
+          {thread.messages.map((message) => (
+            <div className={`flex items-start gap-3 ${message.fromSelf ? 'justify-end' : ''}`} key={message.id}>
+              {!message.fromSelf ? <img alt={`${thread.from} avatar`} className="h-10 w-10 rounded-full border border-violet-300/20 object-cover" src={thread.avatarUrl} /> : null}
+              <div className={`max-w-2xl rounded-2xl p-3 ${message.fromSelf ? 'bg-brand-gradient/30 text-white/90' : 'bg-violet-300/10 text-violet-100/85'}`}>
+                <p className="text-sm font-semibold text-violet-100">{message.sender}</p>
+                <p className="mt-1 text-sm">{message.text}</p>
+                <p className="mt-2 text-xs text-violet-200/70">{message.time}</p>
+              </div>
+              {message.fromSelf ? <img alt={`${profileOverview.name} avatar`} className="h-10 w-10 rounded-full border border-violet-300/20 object-cover" src={profileOverview.avatarUrl} /> : null}
             </div>
-          </div>
-          <div className="flex justify-end">
-            <div className="max-w-2xl rounded-2xl bg-brand-gradient/30 p-3 text-sm text-white/90">
-              Thanks. I will review this now and follow up with my results.
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <img alt={`${thread.from} avatar`} className="h-10 w-10 rounded-full border border-violet-300/20 object-cover" src={thread.avatarUrl} />
-            <div className="max-w-2xl rounded-2xl bg-violet-300/10 p-3 text-sm text-violet-100/85">
-              Great. I can also generate a short checklist if you want a guided flow.
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
