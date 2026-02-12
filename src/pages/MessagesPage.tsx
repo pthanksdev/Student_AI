@@ -1,4 +1,5 @@
-﻿import { DashboardShell } from '../components/dashboard/DashboardShell'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
+import { DashboardShell } from '../components/dashboard/DashboardShell'
 
 const threads = [
   { from: 'AI Tutor', preview: 'I generated your 20-minute revision plan.', time: 'Now' },
@@ -8,10 +9,7 @@ const threads = [
 
 export const MessagesPage = () => (
   <DashboardShell>
-    <section className="mb-6">
-      <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Messages</p>
-      <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Inbox</h2>
-    </section>
+    <DashboardPageHeader label="Messages" title="Inbox" />
     <div className="space-y-4">
       {threads.map((thread) => (
         <article className="dark-card rounded-2xl p-5" key={thread.from + thread.time}>

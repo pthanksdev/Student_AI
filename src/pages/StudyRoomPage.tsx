@@ -1,4 +1,5 @@
-﻿import { Users } from 'lucide-react'
+import { Users } from 'lucide-react'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
 
 const rooms = [
@@ -9,10 +10,7 @@ const rooms = [
 
 export const StudyRoomPage = () => (
   <DashboardShell>
-    <section className="mb-6">
-      <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Study Room</p>
-      <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Collaborative Sessions</h2>
-    </section>
+    <DashboardPageHeader label="Study Room" title="Collaborative Sessions" />
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {rooms.map((room) => (
         <article className="dark-card rounded-2xl p-5" key={room.name}>

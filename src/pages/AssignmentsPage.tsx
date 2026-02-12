@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { DashboardDetailModal } from '../components/dashboard/DashboardDetailModal'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { assignments } from '../data/mockData'
 import type { Assignment } from '../types'
@@ -15,10 +16,7 @@ export const AssignmentsPage = () => {
 
   return (
     <DashboardShell>
-      <section className="mb-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Assignments</p>
-        <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Assignment Tracker</h2>
-      </section>
+      <DashboardPageHeader label="Assignments" title="Assignment Tracker" />
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {assignments.map((item) => (
           <article
@@ -51,7 +49,7 @@ export const AssignmentsPage = () => {
             { label: 'Estimated Time', value: '90 min' },
           ]}
           onClose={() => setSelectedAssignment(null)}
-          subtitle='Assignment Progress Detail'
+          subtitle="Assignment Progress Detail"
           title={selectedAssignment.title}
         >
           <p>
@@ -66,4 +64,3 @@ export const AssignmentsPage = () => {
     </DashboardShell>
   )
 }
-

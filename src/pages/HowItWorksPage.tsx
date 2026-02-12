@@ -1,4 +1,5 @@
-﻿import { BrainCircuit, CalendarClock, CheckCircle2, Layers } from 'lucide-react'
+import { BrainCircuit, CalendarClock, CheckCircle2, Layers } from 'lucide-react'
+import { MarketingCard } from '../components/marketing/MarketingCard'
 import { MarketingShell } from '../components/layout/MarketingShell'
 
 const steps = [
@@ -31,18 +32,14 @@ export const HowItWorksPage = () => (
   >
     <div className="space-y-4">
       {steps.map((step, idx) => (
-        <article className="dark-card rounded-2xl p-6" key={step.title}>
-          <div className="flex items-start gap-4">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-300/15 text-violet-100">
-              <step.icon className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-violet-100/60">Step {idx + 1}</p>
-              <h2 className="mt-1 font-display text-xl font-semibold text-white">{step.title}</h2>
-              <p className="mt-2 text-violet-100/70">{step.description}</p>
-            </div>
-          </div>
-        </article>
+        <MarketingCard
+          description={step.description}
+          icon={<step.icon className="h-5 w-5" />}
+          key={step.title}
+          title={step.title}
+        >
+          <p className="mt-2 text-xs uppercase tracking-[0.2em] text-violet-100/60">Step {idx + 1}</p>
+        </MarketingCard>
       ))}
     </div>
   </MarketingShell>

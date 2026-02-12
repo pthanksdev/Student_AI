@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CalendarClock, CheckCircle2 } from 'lucide-react'
 import { DashboardDetailModal } from '../components/dashboard/DashboardDetailModal'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { plannerTasks } from '../data/mockData'
 import type { PlannerTask } from '../types'
@@ -16,10 +17,7 @@ export const PlannerPage = () => {
 
   return (
     <DashboardShell>
-      <section className="mb-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Planner</p>
-        <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Study Planner</h2>
-      </section>
+      <DashboardPageHeader label="Planner" title="Study Planner" />
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {plannerTasks.map((task) => (
           <article
@@ -62,7 +60,7 @@ export const PlannerPage = () => {
             { label: 'Duration', value: '60 min' },
           ]}
           onClose={() => setSelectedTask(null)}
-          subtitle='Planner Task Breakdown'
+          subtitle="Planner Task Breakdown"
           title={selectedTask.title}
         >
           <p>
@@ -77,4 +75,3 @@ export const PlannerPage = () => {
     </DashboardShell>
   )
 }
-

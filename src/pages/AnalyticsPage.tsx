@@ -1,4 +1,4 @@
-﻿import {
+import {
   Area,
   AreaChart,
   CartesianGrid,
@@ -7,22 +7,23 @@
   XAxis,
   YAxis,
 } from 'recharts'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { performanceSeries, weeklyStudyData } from '../data/mockData'
 
 export const AnalyticsPage = () => (
   <DashboardShell>
-    <section className="mb-6">
-      <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Analytics</p>
-      <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Performance Insights</h2>
-      <p className="mt-2 text-violet-100/70">Detailed trends from your AI-powered study sessions.</p>
-    </section>
+    <DashboardPageHeader
+      description="Detailed trends from your AI-powered study sessions."
+      label="Analytics"
+      title="Performance Insights"
+    />
 
     <section className="grid gap-6 xl:grid-cols-2">
       <article className="dark-card rounded-2xl p-4 sm:p-5">
         <h3 className="mb-4 font-display text-base font-bold text-white sm:text-lg">Score consistency</h3>
         <div className="h-64 sm:h-72">
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer height="100%" width="100%">
             <AreaChart data={performanceSeries}>
               <defs>
                 <linearGradient id="scoreGradient" x1="0" x2="0" y1="0" y2="1">

@@ -1,4 +1,5 @@
-﻿import { MarketingShell } from '../components/layout/MarketingShell'
+import { MarketingCard } from '../components/marketing/MarketingCard'
+import { MarketingShell } from '../components/layout/MarketingShell'
 import { featureCards } from '../data/mockData'
 
 export const FeaturesPage = () => (
@@ -8,13 +9,12 @@ export const FeaturesPage = () => (
   >
     <div className="grid gap-5 md:grid-cols-2">
       {featureCards.map((feature) => (
-        <article className="dark-card rounded-2xl p-6" key={feature.title}>
-          <div className="mb-4 inline-flex rounded-xl bg-violet-300/15 p-3 text-violet-100">
-            <feature.icon className="h-5 w-5" />
-          </div>
-          <h2 className="font-display text-xl font-semibold text-white">{feature.title}</h2>
-          <p className="mt-2 text-violet-100/70">{feature.description}</p>
-        </article>
+        <MarketingCard
+          description={feature.description}
+          icon={<feature.icon className="h-5 w-5" />}
+          key={feature.title}
+          title={feature.title}
+        />
       ))}
     </div>
   </MarketingShell>

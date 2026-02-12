@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BookOpen, Clock3, GraduationCap } from 'lucide-react'
 import { DashboardDetailModal } from '../components/dashboard/DashboardDetailModal'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { courses } from '../data/mockData'
 import type { Course } from '../types'
@@ -16,10 +17,7 @@ export const CoursesPage = () => {
 
   return (
     <DashboardShell>
-      <section className="mb-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Courses</p>
-        <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">My Learning Tracks</h2>
-      </section>
+      <DashboardPageHeader label="Courses" title="My Learning Tracks" />
 
       <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {courses.map((course) => (
@@ -69,7 +67,7 @@ export const CoursesPage = () => {
             { label: 'Mode', value: 'Guided' },
           ]}
           onClose={() => setSelectedCourse(null)}
-          subtitle='Course Detail and Study Recommendation'
+          subtitle="Course Detail and Study Recommendation"
           title={selectedCourse.title}
         >
           <p>
@@ -84,4 +82,3 @@ export const CoursesPage = () => {
     </DashboardShell>
   )
 }
-

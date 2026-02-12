@@ -1,12 +1,10 @@
-﻿import { CreditCard, ReceiptText } from 'lucide-react'
+import { CreditCard, ReceiptText } from 'lucide-react'
+import { DashboardPageHeader } from '../components/dashboard/DashboardPageHeader'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
 
 export const BillingPage = () => (
   <DashboardShell>
-    <section className="mb-6">
-      <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Billing</p>
-      <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Plan & Invoices</h2>
-    </section>
+    <DashboardPageHeader label="Billing" title="Plan & Invoices" />
 
     <div className="grid gap-6 lg:grid-cols-2">
       <article className="dark-card rounded-2xl p-6">
