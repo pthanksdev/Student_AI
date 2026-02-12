@@ -14,7 +14,7 @@ export const PlannerPage = () => {
         <p className="text-xs uppercase tracking-[0.2em] text-violet-100/50">Planner</p>
         <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">Study Planner</h2>
       </section>
-      <div className="space-y-4">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {plannerTasks.map((task) => (
           <article
             className="dark-card cursor-pointer rounded-2xl p-5 transition hover:border-violet-300/30"
@@ -53,3 +53,4 @@ export const PlannerPage = () => {
     </DashboardShell>
   )
 }
+

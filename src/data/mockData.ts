@@ -157,15 +157,13 @@ export const flashcardSets: FlashcardSet[] = [
 
 export const plannerTasks: PlannerTask[] = [
   { title: 'Biology review sprint', time: 'Today, 5:00 PM', status: 'Scheduled' },
-  { title: 'Math flashcard session', time: 'Tomorrow, 8:00 AM', status: 'Scheduled' },
+  { title: 'Math flashcard session', time: 'Tomorrow, 8:00 AM', status: 'Completed' },
   { title: 'History quiz block', time: 'Friday, 6:30 PM', status: 'Pending' },
   { title: 'Linear algebra problem set', time: 'Saturday, 10:00 AM', status: 'Scheduled' },
   { title: 'Chemistry lab recap', time: 'Saturday, 3:00 PM', status: 'Pending' },
   { title: 'Programming practice challenge', time: 'Sunday, 1:00 PM', status: 'Scheduled' },
-  { title: 'Statistics formula revision', time: 'Monday, 7:30 AM', status: 'Scheduled' },
   { title: 'Essay draft outline', time: 'Monday, 8:00 PM', status: 'Completed' },
   { title: 'Physics mechanics timed quiz', time: 'Tuesday, 6:00 PM', status: 'Pending' },
-  { title: 'Language vocab checkpoint', time: 'Wednesday, 7:15 PM', status: 'Scheduled' },
 ]
 
 export const aiRecommendations: Recommendation[] = [
