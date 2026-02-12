@@ -50,7 +50,21 @@ export const PlannerPage = () => {
       </div>
 
       {selectedTask ? (
-        <DashboardDetailModal onClose={() => setSelectedTask(null)} title={selectedTask.title}>
+        <DashboardDetailModal
+          actions={[
+            { label: 'Start Focus Timer', variant: 'primary' },
+            { label: 'Reschedule Task' },
+          ]}
+          meta={[
+            { label: 'Time Slot', value: selectedTask.time },
+            { label: 'Status', value: selectedTask.status },
+            { label: 'Session Type', value: 'Deep Work' },
+            { label: 'Duration', value: '60 min' },
+          ]}
+          onClose={() => setSelectedTask(null)}
+          subtitle='Planner Task Breakdown'
+          title={selectedTask.title}
+        >
           <p>
             Overview: This study block is set for {selectedTask.time} and is currently marked as {selectedTask.status.toLowerCase()}.
           </p>
@@ -63,3 +77,4 @@ export const PlannerPage = () => {
     </DashboardShell>
   )
 }
+

@@ -67,7 +67,21 @@ export const QuizzesPage = () => {
       </section>
 
       {selectedQuiz ? (
-        <DashboardDetailModal onClose={() => setSelectedQuiz(null)} title={selectedQuiz.title}>
+        <DashboardDetailModal
+          actions={[
+            { label: 'Retake Quiz', variant: 'primary' },
+            { label: 'Generate Flashcards' },
+          ]}
+          meta={[
+            { label: 'Difficulty', value: selectedQuiz.difficulty },
+            { label: 'Questions', value: `${selectedQuiz.questions}` },
+            { label: 'Latest Score', value: selectedQuiz.score },
+            { label: 'Mode', value: 'Adaptive' },
+          ]}
+          onClose={() => setSelectedQuiz(null)}
+          subtitle='Quiz Performance and Next Action'
+          title={selectedQuiz.title}
+        >
           <p>
             Overview: This is a {selectedQuiz.difficulty.toLowerCase()} difficulty quiz with {selectedQuiz.questions} questions. Your latest result is {selectedQuiz.score}.
           </p>
@@ -80,3 +94,4 @@ export const QuizzesPage = () => {
     </DashboardShell>
   )
 }
+

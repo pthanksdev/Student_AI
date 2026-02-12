@@ -57,7 +57,21 @@ export const CoursesPage = () => {
       </section>
 
       {selectedCourse ? (
-        <DashboardDetailModal onClose={() => setSelectedCourse(null)} title={selectedCourse.title}>
+        <DashboardDetailModal
+          actions={[
+            { label: 'Start Next Lesson', variant: 'primary' },
+            { label: 'Open Practice Quiz' },
+          ]}
+          meta={[
+            { label: 'Category', value: selectedCourse.category },
+            { label: 'Progress', value: `${selectedCourse.progress}%` },
+            { label: 'Lessons Left', value: `${selectedCourse.lessonsLeft}` },
+            { label: 'Mode', value: 'Guided' },
+          ]}
+          onClose={() => setSelectedCourse(null)}
+          subtitle='Course Detail and Study Recommendation'
+          title={selectedCourse.title}
+        >
           <p>
             Overview: {selectedCourse.title} is a {selectedCourse.category} track with {selectedCourse.progress}% completion and {selectedCourse.lessonsLeft} lessons remaining.
           </p>
@@ -70,3 +84,4 @@ export const CoursesPage = () => {
     </DashboardShell>
   )
 }
+

@@ -39,7 +39,21 @@ export const AssignmentsPage = () => {
       </div>
 
       {selectedAssignment ? (
-        <DashboardDetailModal onClose={() => setSelectedAssignment(null)} title={selectedAssignment.title}>
+        <DashboardDetailModal
+          actions={[
+            { label: 'Open Assignment', variant: 'primary' },
+            { label: 'Mark Next Milestone' },
+          ]}
+          meta={[
+            { label: 'Due Date', value: selectedAssignment.due },
+            { label: 'Status', value: selectedAssignment.status },
+            { label: 'Priority', value: 'High' },
+            { label: 'Estimated Time', value: '90 min' },
+          ]}
+          onClose={() => setSelectedAssignment(null)}
+          subtitle='Assignment Progress Detail'
+          title={selectedAssignment.title}
+        >
           <p>
             Overview: This assignment is due {selectedAssignment.due} and is currently marked as {selectedAssignment.status.toLowerCase()}.
           </p>
@@ -52,3 +66,4 @@ export const AssignmentsPage = () => {
     </DashboardShell>
   )
 }
+

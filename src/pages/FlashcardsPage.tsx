@@ -61,7 +61,21 @@ export const FlashcardsPage = () => {
       </section>
 
       {selectedSet ? (
-        <DashboardDetailModal onClose={() => setSelectedSet(null)} title={selectedSet.name}>
+        <DashboardDetailModal
+          actions={[
+            { label: 'Start Review Session', variant: 'primary' },
+            { label: 'Practice Weak Cards' },
+          ]}
+          meta={[
+            { label: 'Cards', value: `${selectedSet.cards}` },
+            { label: 'Retention', value: selectedSet.retention },
+            { label: 'Method', value: 'Spaced Repetition' },
+            { label: 'Priority', value: 'Medium' },
+          ]}
+          onClose={() => setSelectedSet(null)}
+          subtitle='Flashcard Retention Summary'
+          title={selectedSet.name}
+        >
           <p>
             Overview: This set contains {selectedSet.cards} cards with a current retention rate of {selectedSet.retention}.
           </p>
@@ -74,3 +88,4 @@ export const FlashcardsPage = () => {
     </DashboardShell>
   )
 }
+
