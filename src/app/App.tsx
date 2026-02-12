@@ -22,6 +22,8 @@ const PlannerPage = lazy(() => import('@features/dashboard/pages/PlannerPage').t
 const AssignmentsPage = lazy(() => import('@features/dashboard/pages/AssignmentsPage').then((m) => ({ default: m.AssignmentsPage })))
 const StudyRoomPage = lazy(() => import('@features/dashboard/pages/StudyRoomPage').then((m) => ({ default: m.StudyRoomPage })))
 const MessagesPage = lazy(() => import('@features/dashboard/pages/MessagesPage').then((m) => ({ default: m.MessagesPage })))
+const MessageThreadPage = lazy(() => import('@features/dashboard/pages/MessageThreadPage').then((m) => ({ default: m.MessageThreadPage })))
+const MessageQuickReplyPage = lazy(() => import('@features/dashboard/pages/MessageQuickReplyPage').then((m) => ({ default: m.MessageQuickReplyPage })))
 const AnalyticsPage = lazy(() => import('@features/dashboard/pages/AnalyticsPage').then((m) => ({ default: m.AnalyticsPage })))
 const BillingPage = lazy(() => import('@features/dashboard/pages/BillingPage').then((m) => ({ default: m.BillingPage })))
 const SettingsPage = lazy(() => import('@features/dashboard/pages/SettingsPage').then((m) => ({ default: m.SettingsPage })))
@@ -56,6 +58,8 @@ function App() {
         <Route element={<AssignmentsPage />} path="/dashboard/assignments" />
         <Route element={<StudyRoomPage />} path="/dashboard/study-room" />
         <Route element={<MessagesPage />} path="/dashboard/messages" />
+        <Route element={<MessageThreadPage />} path="/dashboard/messages/thread/:threadId" />
+        <Route element={<MessageQuickReplyPage />} path="/dashboard/messages/quick-reply/:threadId" />
         <Route element={<AnalyticsPage />} path="/dashboard/analytics" />
         <Route element={<BillingPage />} path="/dashboard/billing" />
         <Route element={<SettingsPage />} path="/dashboard/settings" />

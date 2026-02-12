@@ -282,6 +282,7 @@ export const securitySessions: SecuritySession[] = [
 
 export const messageThreads: MessageThread[] = [
   {
+    id: 'ai-tutor-plan',
     from: 'AI Tutor',
     preview: 'I built a 3-step revision plan for your upcoming calculus quiz.',
     time: 'Now',
@@ -291,6 +292,7 @@ export const messageThreads: MessageThread[] = [
     channel: 'AI Tutor',
   },
   {
+    id: 'maya-ch5',
     from: 'Maya Lin',
     preview: 'Can we split Chapter 5 and compare notes tonight at 8:30?',
     time: '1h ago',
@@ -300,6 +302,7 @@ export const messageThreads: MessageThread[] = [
     channel: 'Peer',
   },
   {
+    id: 'mentor-weekly',
     from: 'Course Mentor',
     preview: 'Great progress this week. Your quiz accuracy improved by 6%.',
     time: 'Yesterday',
@@ -309,6 +312,7 @@ export const messageThreads: MessageThread[] = [
     channel: 'Mentor',
   },
   {
+    id: 'ai-probability',
     from: 'AI Tutor',
     preview: 'You missed two probability concepts. Want a quick 10-min booster?',
     time: 'Yesterday',

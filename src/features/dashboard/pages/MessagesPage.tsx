@@ -1,4 +1,5 @@
 import { CircleDot, MessageCircleMore, SendHorizonal } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { DashboardPageHeader } from '@features/dashboard/components/DashboardPageHeader'
 import { DashboardShell } from '@features/dashboard/components/DashboardShell'
 import { messageThreads } from '@shared/data/mockData'
@@ -56,14 +57,20 @@ export const MessagesPage = () => {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              <button className="inline-flex items-center gap-2 rounded-lg border border-violet-300/20 px-3 py-2 text-sm font-semibold text-violet-100/85" type="button">
+              <Link
+                className="inline-flex items-center gap-2 rounded-lg border border-violet-300/20 px-3 py-2 text-sm font-semibold text-violet-100/85"
+                to={`/dashboard/messages/thread/${thread.id}`}
+              >
                 <MessageCircleMore className="h-4 w-4" />
                 Open Thread
-              </button>
-              <button className="inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-3 py-2 text-sm font-semibold text-white" type="button">
+              </Link>
+              <Link
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-3 py-2 text-sm font-semibold text-white"
+                to={`/dashboard/messages/quick-reply/${thread.id}`}
+              >
                 <SendHorizonal className="h-4 w-4" />
                 Quick Reply
-              </button>
+              </Link>
             </div>
           </article>
         ))}

@@ -95,6 +95,7 @@ export type SecuritySession = {
 }
 
 export type MessageThread = {
+  id: string
   from: string
   preview: string
   time: string
