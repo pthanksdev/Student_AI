@@ -1,4 +1,4 @@
-﻿import { LayoutDashboard, Layers, MessageSquareText, NotebookPen, Settings2, Wallet } from 'lucide-react'
+import { LayoutDashboard, Layers, MessageSquareText, NotebookPen, Settings2, UserRound, Wallet } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
 const items = [
@@ -9,6 +9,7 @@ const items = [
   { to: '/dashboard/messages', label: 'Messages', icon: MessageSquareText },
   { to: '/dashboard/billing', label: 'Billing', icon: Wallet },
   { to: '/dashboard/settings', label: 'Settings', icon: Settings2 },
+  { to: '/dashboard/profile', label: 'Profile', icon: UserRound },
 ]
 
 export const DashboardMobileNav = () => (
@@ -29,3 +30,4 @@ export const DashboardMobileNav = () => (
     ))}
   </nav>
 )
+

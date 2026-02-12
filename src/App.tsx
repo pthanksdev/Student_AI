@@ -25,6 +25,7 @@ const MessagesPage = lazy(() => import('./pages/MessagesPage').then((m) => ({ de
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage').then((m) => ({ default: m.AnalyticsPage })))
 const BillingPage = lazy(() => import('./pages/BillingPage').then((m) => ({ default: m.BillingPage })))
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then((m) => ({ default: m.SettingsPage })))
+const ProfilePage = lazy(() => import('./pages/ProfilePage').then((m) => ({ default: m.ProfilePage })))
 
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })))
 
@@ -58,6 +59,7 @@ function App() {
         <Route element={<AnalyticsPage />} path="/dashboard/analytics" />
         <Route element={<BillingPage />} path="/dashboard/billing" />
         <Route element={<SettingsPage />} path="/dashboard/settings" />
+        <Route element={<ProfilePage />} path="/dashboard/profile" />
 
         <Route element={<Navigate replace to="/dashboard" />} path="/app" />
         <Route element={<NotFoundPage />} path="*" />

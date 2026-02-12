@@ -1,4 +1,5 @@
 import { Bell, Search } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export const DashboardTopBar = () => {
   return (
@@ -17,10 +18,10 @@ export const DashboardTopBar = () => {
           <button className="rounded-xl border border-violet-300/15 bg-violet-300/5 p-2 text-violet-100/75" type="button">
             <Bell className="h-5 w-5" />
           </button>
-          <div className="flex items-center gap-2 rounded-xl border border-violet-300/20 bg-violet-300/8 px-2 py-2 sm:gap-3 sm:px-3">
+          <Link className="flex items-center gap-2 rounded-xl border border-violet-300/20 bg-violet-300/8 px-2 py-2 transition hover:border-violet-200/40 sm:gap-3 sm:px-3" to="/dashboard/profile">
             <div className="h-8 w-8 rounded-full bg-brand-gradient" />
             <p className="hidden text-sm font-semibold text-violet-50 sm:block">Alex D.</p>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

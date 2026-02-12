@@ -289,6 +289,7 @@ export const dashboardNav = [
   { label: 'Analytics', path: '/dashboard/analytics' },
   { label: 'Billing', path: '/dashboard/billing' },
   { label: 'Settings', path: '/dashboard/settings' },
+  { label: 'Profile', path: '/dashboard/profile' },
 ]
 
 

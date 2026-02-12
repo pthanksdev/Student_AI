@@ -1,4 +1,4 @@
-﻿import {
+import {
   BarChart3,
   BookOpen,
   Bot,
@@ -10,6 +10,7 @@
   Layers,
   MessageSquareText,
   Settings2,
+  UserRound,
   Sparkles,
   Users,
 } from 'lucide-react'
@@ -27,6 +28,7 @@ const navItems = [
   { to: '/dashboard/analytics', label: 'Analytics', icon: ChartColumn },
   { to: '/dashboard/billing', label: 'Billing', icon: CreditCard },
   { to: '/dashboard/settings', label: 'Settings', icon: Settings2 },
+  { to: '/dashboard/profile', label: 'Profile', icon: UserRound },
 ]
 
 export const DashboardSidebar = () => {
@@ -76,3 +78,4 @@ export const DashboardSidebar = () => {
     </aside>
   )
 }
+
