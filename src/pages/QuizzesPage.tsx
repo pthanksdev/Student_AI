@@ -21,7 +21,7 @@ export const QuizzesPage = () => {
         </button>
       </div>
 
-      <section className="space-y-4">
+      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {quizzes.map((quiz) => (
           <article
             className="dark-card cursor-pointer rounded-2xl p-5 transition hover:border-violet-300/30"
@@ -66,3 +66,4 @@ export const QuizzesPage = () => {
     </DashboardShell>
   )
 }
+
