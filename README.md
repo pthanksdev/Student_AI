@@ -1,74 +1,101 @@
-# React + TypeScript + Vite
+# Student AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Student AI is a React + TypeScript web app with two main experiences:
+- Marketing/public pages (`/`, `/features`, `/pricing`, etc.)
+- A student dashboard (`/dashboard/*`) for study workflows
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- TypeScript 5
+- Vite 7
+- React Router 7
+- Tailwind CSS 3
+- Recharts
+- Lucide React
 
-## React Compiler
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev      # Start local dev server
+npm run build    # Type-check + production build
+npm run preview  # Preview production build locally
+npm run lint     # Run ESLint
 ```
-"# Student_AI" 
+
+## App Graph
+
+```mermaid
+flowchart TD
+  A[main.tsx] --> B[BrowserRouter]
+  B --> C[App.tsx]
+
+  C --> D[Public Routes]
+  C --> E[Dashboard Routes]
+
+  D --> D1[Landing /]
+  D --> D2[Features]
+  D --> D3[How It Works]
+  D --> D4[Pricing]
+  D --> D5[Auth/Legal/Info Pages]
+
+  E --> E1[/dashboard]
+  E --> E2[/dashboard/courses]
+  E --> E3[/dashboard/flashcards]
+  E --> E4[/dashboard/quizzes]
+  E --> E5[/dashboard/planner]
+  E --> E6[/dashboard/assignments]
+  E --> E7[/dashboard/study-room]
+  E --> E8[/dashboard/messages]
+  E --> E9[/dashboard/analytics]
+  E --> E10[/dashboard/billing]
+  E --> E11[/dashboard/settings]
+```
+
+## Project Structure
+
+```text
+student-ai/
+|-- public/
+|-- src/
+|   |-- components/
+|   |   |-- common/
+|   |   |-- dashboard/
+|   |   |-- landing/
+|   |   `-- layout/
+|   |-- data/
+|   |-- hooks/
+|   |-- pages/
+|   |-- types/
+|   |-- App.tsx
+|   |-- main.tsx
+|   `-- index.css
+|-- index.html
+|-- package.json
+|-- tailwind.config.js
+|-- vite.config.ts
+`-- tsconfig.json
+```
+
+## Routing Notes
+
+- Routes are lazy-loaded in `src/App.tsx` for better initial load performance.
+- `/app` redirects to `/dashboard`.
+- Unknown routes render `NotFoundPage`.
+
+## Build Output
+
+Production artifacts are generated in `dist/` after:
+
+```bash
+npm run build
+```
