@@ -5,6 +5,12 @@ import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { courses } from '../data/mockData'
 import type { Course } from '../types'
 
+const getCourseInsight = (course: Course) => {
+  if (course.progress >= 80) return 'This course is in the final stretch. Prioritize timed practice and final review sets.'
+  if (course.progress >= 60) return 'You are in the consolidation phase. Focus on weak lessons and mixed-topic practice.'
+  return 'This course is still in the build-up phase. Keep a steady study rhythm to avoid backlog.'
+}
+
 export const CoursesPage = () => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null)
 
@@ -52,12 +58,15 @@ export const CoursesPage = () => {
 
       {selectedCourse ? (
         <DashboardDetailModal onClose={() => setSelectedCourse(null)} title={selectedCourse.title}>
-          <p>Category: {selectedCourse.category}</p>
-          <p>Progress: {selectedCourse.progress}% completed</p>
-          <p>Lessons remaining: {selectedCourse.lessonsLeft}</p>
+          <p>
+            Overview: {selectedCourse.title} is a {selectedCourse.category} track with {selectedCourse.progress}% completion and {selectedCourse.lessonsLeft} lessons remaining.
+          </p>
+          <p>Learning status: {getCourseInsight(selectedCourse)}</p>
+          <p>
+            Suggested next step: Finish 1-2 remaining lessons, then run a short quiz to confirm retention before moving to the next module.
+          </p>
         </DashboardDetailModal>
       ) : null}
     </DashboardShell>
   )
 }
-

@@ -5,6 +5,12 @@ import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { plannerTasks } from '../data/mockData'
 import type { PlannerTask } from '../types'
 
+const getPlannerInsight = (task: PlannerTask) => {
+  if (task.status === 'Completed') return 'This task is complete. Keep momentum by scheduling a short follow-up review.'
+  if (task.status === 'Scheduled') return 'This task is planned and on track. Protect this time block and avoid context switching.'
+  return 'This task is pending. Prioritize it early to reduce deadline pressure.'
+}
+
 export const PlannerPage = () => {
   const [selectedTask, setSelectedTask] = useState<PlannerTask | null>(null)
 
@@ -45,12 +51,15 @@ export const PlannerPage = () => {
 
       {selectedTask ? (
         <DashboardDetailModal onClose={() => setSelectedTask(null)} title={selectedTask.title}>
-          <p>Scheduled time: {selectedTask.time}</p>
-          <p>Status: {selectedTask.status}</p>
-          <p>Tip: Break this session into 25-minute focus blocks.</p>
+          <p>
+            Overview: This study block is set for {selectedTask.time} and is currently marked as {selectedTask.status.toLowerCase()}.
+          </p>
+          <p>Planner analysis: {getPlannerInsight(selectedTask)}</p>
+          <p>
+            Suggested next step: Break the session into 25-minute focus intervals and assign a clear success goal for each interval.
+          </p>
         </DashboardDetailModal>
       ) : null}
     </DashboardShell>
   )
 }
-

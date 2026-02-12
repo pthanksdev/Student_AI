@@ -5,6 +5,16 @@ import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { quizzes } from '../data/mockData'
 import type { Quiz } from '../types'
 
+const parseScore = (score: string) => Number.parseInt(score.replace('%', ''), 10)
+
+const getQuizInsight = (quiz: Quiz) => {
+  const score = parseScore(quiz.score)
+
+  if (score >= 90) return 'Strong mastery. Focus on speed and harder variants to improve exam confidence.'
+  if (score >= 80) return 'Solid understanding with room to tighten consistency on medium-hard questions.'
+  return 'Core concepts need reinforcement. Review fundamentals and retry with hints enabled.'
+}
+
 export const QuizzesPage = () => {
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null)
 
@@ -58,12 +68,15 @@ export const QuizzesPage = () => {
 
       {selectedQuiz ? (
         <DashboardDetailModal onClose={() => setSelectedQuiz(null)} title={selectedQuiz.title}>
-          <p>Difficulty: {selectedQuiz.difficulty}</p>
-          <p>Questions: {selectedQuiz.questions}</p>
-          <p>Latest score: {selectedQuiz.score}</p>
+          <p>
+            Overview: This is a {selectedQuiz.difficulty.toLowerCase()} difficulty quiz with {selectedQuiz.questions} questions. Your latest result is {selectedQuiz.score}.
+          </p>
+          <p>Performance analysis: {getQuizInsight(selectedQuiz)}</p>
+          <p>
+            Suggested next step: Retry the quiz in exam mode, then generate a focused flashcard set from missed topics to lock in retention.
+          </p>
         </DashboardDetailModal>
       ) : null}
     </DashboardShell>
   )
 }
-

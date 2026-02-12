@@ -5,6 +5,16 @@ import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { flashcardSets } from '../data/mockData'
 import type { FlashcardSet } from '../types'
 
+const parseRetention = (retention: string) => Number.parseInt(retention.replace('%', ''), 10)
+
+const getRetentionInsight = (set: FlashcardSet) => {
+  const value = parseRetention(set.retention)
+
+  if (value >= 85) return 'Retention is strong. Maintain with quick daily review bursts.'
+  if (value >= 75) return 'Retention is stable but inconsistent on harder cards. Prioritize weak-card drills.'
+  return 'Retention is below target. Increase review frequency and shorten interval spacing.'
+}
+
 export const FlashcardsPage = () => {
   const [selectedSet, setSelectedSet] = useState<FlashcardSet | null>(null)
 
@@ -52,12 +62,15 @@ export const FlashcardsPage = () => {
 
       {selectedSet ? (
         <DashboardDetailModal onClose={() => setSelectedSet(null)} title={selectedSet.name}>
-          <p>Total cards: {selectedSet.cards}</p>
-          <p>Retention: {selectedSet.retention}</p>
-          <p>Suggestion: Review weak cards and run one active recall pass.</p>
+          <p>
+            Overview: This set contains {selectedSet.cards} cards with a current retention rate of {selectedSet.retention}.
+          </p>
+          <p>Learning analysis: {getRetentionInsight(selectedSet)}</p>
+          <p>
+            Suggested next step: Run one weak-card session now, then schedule a second spaced review in 24 hours for reinforcement.
+          </p>
         </DashboardDetailModal>
       ) : null}
     </DashboardShell>
   )
 }
-

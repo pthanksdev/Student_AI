@@ -4,6 +4,12 @@ import { DashboardShell } from '../components/dashboard/DashboardShell'
 import { assignments } from '../data/mockData'
 import type { Assignment } from '../types'
 
+const getAssignmentInsight = (assignment: Assignment) => {
+  if (assignment.status === 'Submitted') return 'This assignment is completed. Review feedback once available and note improvement points.'
+  if (assignment.status === 'In Progress') return 'Work is underway. Focus on finishing the highest-value section first.'
+  return 'This assignment has not been started yet. Begin with outline and resource gathering.'
+}
+
 export const AssignmentsPage = () => {
   const [selectedAssignment, setSelectedAssignment] = useState<Assignment | null>(null)
 
@@ -34,9 +40,13 @@ export const AssignmentsPage = () => {
 
       {selectedAssignment ? (
         <DashboardDetailModal onClose={() => setSelectedAssignment(null)} title={selectedAssignment.title}>
-          <p>Due: {selectedAssignment.due}</p>
-          <p>Status: {selectedAssignment.status}</p>
-          <p>Tip: Break this assignment into smaller subtasks and time blocks.</p>
+          <p>
+            Overview: This assignment is due {selectedAssignment.due} and is currently marked as {selectedAssignment.status.toLowerCase()}.
+          </p>
+          <p>Progress analysis: {getAssignmentInsight(selectedAssignment)}</p>
+          <p>
+            Suggested next step: Define the final deliverable, split into subtasks, and complete the first milestone today.
+          </p>
         </DashboardDetailModal>
       ) : null}
     </DashboardShell>
