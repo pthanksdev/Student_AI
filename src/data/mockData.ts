@@ -1,5 +1,5 @@
 ﻿import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
-import type { Activity, Course, Metric, NavItem, Quiz, Recommendation } from '../types'
+import type { Activity, Course, FlashcardSet, Metric, NavItem, Quiz, Recommendation } from '../types'
 
 export const publicNav: NavItem[] = [
   { label: 'Features', path: '/features' },
@@ -140,6 +140,19 @@ export const quizzes: Quiz[] = [
   { title: 'European History Timeline', questions: 24, difficulty: 'Medium', score: '87%' },
   { title: 'Probability Foundations', questions: 21, difficulty: 'Hard', score: '82%' },
   { title: 'Grammar and Style Review', questions: 14, difficulty: 'Easy', score: '95%' },
+]
+
+export const flashcardSets: FlashcardSet[] = [
+  { name: 'Cell Biology Essentials', cards: 42, retention: '81%' },
+  { name: 'Trigonometry Identities', cards: 28, retention: '74%' },
+  { name: 'French Vocabulary Unit 4', cards: 35, retention: '88%' },
+  { name: 'Organic Chemistry Reactions', cards: 31, retention: '77%' },
+  { name: 'US Government Terms', cards: 26, retention: '85%' },
+  { name: 'Statistics Formula Bank', cards: 24, retention: '79%' },
+  { name: 'Python Syntax Drills', cards: 38, retention: '90%' },
+  { name: 'World Geography Capitals', cards: 52, retention: '83%' },
+  { name: 'Economics Key Concepts', cards: 29, retention: '76%' },
+  { name: 'Physics Constants and Units', cards: 33, retention: '82%' },
 ]
 
 export const aiRecommendations: Recommendation[] = [

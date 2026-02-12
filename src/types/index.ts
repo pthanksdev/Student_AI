@@ -34,3 +34,9 @@ export type Quiz = {
   difficulty: 'Easy' | 'Medium' | 'Hard'
   score: string
 }
+
+export type FlashcardSet = {
+  name: string
+  cards: number
+  retention: string
+}

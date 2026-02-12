@@ -1,11 +1,6 @@
-﻿import { Layers, Plus, Sparkles } from 'lucide-react'
+import { Layers, Plus, Sparkles } from 'lucide-react'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
-
-const sets = [
-  { name: 'Cell Biology Essentials', cards: 42, retention: '81%' },
-  { name: 'Trigonometry Identities', cards: 28, retention: '74%' },
-  { name: 'French Vocabulary Unit 4', cards: 35, retention: '88%' },
-]
+import { flashcardSets } from '../data/mockData'
 
 export const FlashcardsPage = () => (
   <DashboardShell>
@@ -21,7 +16,7 @@ export const FlashcardsPage = () => (
     </div>
 
     <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {sets.map((set) => (
+      {flashcardSets.map((set) => (
         <article className="dark-card rounded-2xl p-5" key={set.name}>
           <div className="mb-4 inline-flex rounded-xl bg-violet-300/15 p-3 text-violet-100">
             <Layers className="h-5 w-5" />
@@ -41,3 +36,4 @@ export const FlashcardsPage = () => (
     </section>
   </DashboardShell>
 )
+
