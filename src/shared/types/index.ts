@@ -53,6 +53,24 @@ export type Assignment = {
   status: 'Not Started' | 'In Progress' | 'Submitted'
 }
 
+export type StudyRoom = {
+  id: string
+  name: string
+  topic: string
+  members: number
+  maxMembers: number
+  status: 'Live' | 'Starting Soon' | 'Scheduled'
+  sessionTime: string
+  duration: string
+  focus: string
+  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Mixed'
+  host: string
+  description: string
+  goals: string[]
+  resources: string[]
+  etiquette: string[]
+}
+
 export type ProfileOverview = {
   name: string
   handle: string
