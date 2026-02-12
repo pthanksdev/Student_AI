@@ -1,5 +1,5 @@
 ﻿import { BrainCircuit, CalendarClock, Flashlight, GraduationCap, Sparkles, Target } from 'lucide-react'
-import type { Activity, Course, Metric, NavItem, Recommendation } from '../types'
+import type { Activity, Course, Metric, NavItem, Quiz, Recommendation } from '../types'
 
 export const publicNav: NavItem[] = [
   { label: 'Features', path: '/features' },
@@ -127,6 +127,19 @@ export const recentActivities: Activity[] = [
   { title: 'Completed Quiz: Cell Structure', time: '2h ago', score: '92%' },
   { title: 'Created Flashcard Set: Matrices', time: 'Yesterday' },
   { title: 'AI Review Session: WW2 Causes', time: '2 days ago', score: '89%' },
+]
+
+export const quizzes: Quiz[] = [
+  { title: 'Genetics Practice Set', questions: 20, difficulty: 'Medium', score: '91%' },
+  { title: 'Vector Calculus Drill', questions: 15, difficulty: 'Hard', score: '84%' },
+  { title: 'Cold War Review', questions: 25, difficulty: 'Medium', score: '88%' },
+  { title: 'Photosynthesis Checkpoint', questions: 18, difficulty: 'Easy', score: '94%' },
+  { title: 'Limits and Continuity Sprint', questions: 22, difficulty: 'Medium', score: '86%' },
+  { title: 'Programming Basics Quiz', questions: 30, difficulty: 'Easy', score: '93%' },
+  { title: 'Cell Respiration Deep Dive', questions: 16, difficulty: 'Hard', score: '79%' },
+  { title: 'European History Timeline', questions: 24, difficulty: 'Medium', score: '87%' },
+  { title: 'Probability Foundations', questions: 21, difficulty: 'Hard', score: '82%' },
+  { title: 'Grammar and Style Review', questions: 14, difficulty: 'Easy', score: '95%' },
 ]
 
 export const aiRecommendations: Recommendation[] = [

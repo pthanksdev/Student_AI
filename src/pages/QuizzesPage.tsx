@@ -1,11 +1,6 @@
-﻿import { BrainCircuit, Gauge, Plus } from 'lucide-react'
+import { BrainCircuit, Gauge, Plus } from 'lucide-react'
 import { DashboardShell } from '../components/dashboard/DashboardShell'
-
-const quizzes = [
-  { title: 'Genetics Practice Set', questions: 20, difficulty: 'Medium', score: '91%' },
-  { title: 'Vector Calculus Drill', questions: 15, difficulty: 'Hard', score: '84%' },
-  { title: 'Cold War Review', questions: 25, difficulty: 'Medium', score: '88%' },
-]
+import { quizzes } from '../data/mockData'
 
 export const QuizzesPage = () => (
   <DashboardShell>
@@ -47,3 +42,4 @@ export const QuizzesPage = () => (
     </section>
   </DashboardShell>
 )
+

@@ -27,3 +27,10 @@ export type Recommendation = {
   description: string
   action: string
 }
+
+export type Quiz = {
+  title: string
+  questions: number
+  difficulty: 'Easy' | 'Medium' | 'Hard'
+  score: string
+}
